@@ -1,0 +1,16 @@
+[
+{
+  "modid": "blinkersanddrinkers",
+  "name": "Blinkers and Drinkers",
+  "description": "You know what this mod is about.",
+  "version": "1.0",
+  "mcversion": "${mcversion}",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/blinkers-and-drinkers",
+  "updateUrl": "https://www.curseforge.com/minecraft/mc-mods/blinkers-and-drinkers/files",
+  "authorList": ["§9nzoliii"],
+  "credits": "\n\n§9oohseven: §fHelping to figure out a name for this mod.\n",
+  "logoFile": "assets/blinkersanddrinkers/textures/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
