@@ -1,13 +1,8 @@
 package com.nzoliii.blinkersanddrinkers.world;
 
 import java.util.Random;
-
-
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockVine;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -15,19 +10,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.feature.WorldGenBigMushroom;
-import net.minecraft.world.gen.feature.WorldGenBush;
-import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenVines;
-import net.minecraft.world.gen.feature.WorldGenWaterlily;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class ModWorldGenerator extends WorldGenerator implements IWorldGenerator
 {
-
     static Random rand2 = new Random();
 
     @Override
@@ -56,10 +45,11 @@ public class ModWorldGenerator extends WorldGenerator implements IWorldGenerator
     {
         if ((int) (Math.random() * 100) == 0)
         {
+            System.out.println("[BID] [ModWorldGenerator.java] if ((int) (Math.random() * 100) == 0) thing said structure should generate.");
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
-            WorldGenerator structure = new SubWorldGen();
-            structure.generate(world, rand, pos);
+            WorldGenerator crackhouse1 = new Crackhouse1WorldGen();
+        crackhouse1.generate(world, rand, pos);
         }
     }
 
@@ -210,7 +200,6 @@ public class ModWorldGenerator extends WorldGenerator implements IWorldGenerator
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        // TODO Auto-generated method stub
         return false;
     }
 }

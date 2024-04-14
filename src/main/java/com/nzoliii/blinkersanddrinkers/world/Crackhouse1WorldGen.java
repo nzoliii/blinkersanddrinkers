@@ -3,13 +3,12 @@ package com.nzoliii.blinkersanddrinkers.world;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import com.nzoliii.blinkersanddrinkers.Main;
+import com.nzoliii.blinkersanddrinkers.BlinkersandDrinkers;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
-import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.server.MinecraftServer;
@@ -29,21 +28,21 @@ import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.storage.loot.LootTableList;
 
-public class SubWorldGen extends WorldGenerator {
+public class Crackhouse1WorldGen extends WorldGenerator {
     Random r2 =new Random();
-
     int r;
+
     @Override
     public boolean generate(World world, Random rand, BlockPos position)
     {
         WorldServer worldserver = (WorldServer) world;
         MinecraftServer minecraftserver = world.getMinecraftServer();
         TemplateManager templatemanager = worldserver.getStructureTemplateManager();
-        Template template = templatemanager.getTemplate(minecraftserver, new ResourceLocation(Main.MODID+":sub"));
+        Template template = templatemanager.getTemplate(minecraftserver, new ResourceLocation(BlinkersandDrinkers.MODID+":crackhouse1"));
 
         if(template == null)
         {
-            System.out.println("[BID] [SubWorldGen.java] NO STRUCTURE TO SPAWN!");
+            System.out.println("[BID] [Crackhouse1WorldGen.java] NO STRUCTURE TO SPAWN!");
             return false;
         }
 
@@ -88,37 +87,38 @@ public class SubWorldGen extends WorldGenerator {
 
                         for (int j=0;j<i;j++) {
 
-                            r = r2.nextInt(9);
+                            r = r2.nextInt(90);
 
                             ItemStack pot=null;
                             switch(r) {
-                                case 0:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_HEALING);}
+                                case 0: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_HEALING);}
                                 break;
 
-                                case 1:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_FIRE_RESISTANCE);}
+                                case 1: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_FIRE_RESISTANCE);}
                                 break;
 
-                                case 2:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_LEAPING);}
+                                case 2: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_LEAPING);}
                                 break;
 
-                                case 3:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_HARMING);}
+                                case 3: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_HARMING);}
                                 break;
 
-                                case 4:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_STRENGTH);}
+                                case 4: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_STRENGTH);}
                                 break;
 
-                                case 5:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_SWIFTNESS);};
-
-                                case 6:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_WATER_BREATHING);}
+                                case 5: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_SWIFTNESS);};
                                 break;
 
-                                case 7:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_REGENERATION);}
+                                case 6: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_WATER_BREATHING);}
                                 break;
 
-                                case 8:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_POISON);}
+                                case 7: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_REGENERATION);}
                                 break;
 
-                                case 9:{pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_NIGHT_VISION);}
+                                case 8: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_POISON);}
+                                break;
+
+                                case 9: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_NIGHT_VISION);}
                                 break;
                             }
                             ((TileEntityBrewingStand)tileentity).setInventorySlotContents(j,pot);

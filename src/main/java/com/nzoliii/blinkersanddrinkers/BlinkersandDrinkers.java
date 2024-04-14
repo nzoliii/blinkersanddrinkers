@@ -9,8 +9,10 @@ import org.apache.logging.log4j.Logger;
 import com.nzoliii.blinkersanddrinkers.world.ModWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
-public class Main
+// TODO: FIX THIS LATER TO ALLOW GENERATING MORE CRACK SHACKS, FOR NOW IT WILL BE GOOD FOR 1.0
+
+@Mod(modid = BlinkersandDrinkers.MODID, name = BlinkersandDrinkers.NAME, version = BlinkersandDrinkers.VERSION)
+public class BlinkersandDrinkers
 {
     public static final String MODID = "blinkersanddrinkers";
     public static final String NAME = "Blinkers and Drinkers";
