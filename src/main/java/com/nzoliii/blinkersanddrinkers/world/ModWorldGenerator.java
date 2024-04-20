@@ -49,7 +49,10 @@ public class ModWorldGenerator extends WorldGenerator implements IWorldGenerator
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator crackhouse1 = new Crackhouse1WorldGen();
-        crackhouse1.generate(world, rand, pos);
+            WorldGenerator crackshack1 = new Crackshack1WorldGen();
+            crackhouse1.generate(world, rand, pos);
+            crackshack1.generate(world, rand, pos);
+
         }
     }
 
