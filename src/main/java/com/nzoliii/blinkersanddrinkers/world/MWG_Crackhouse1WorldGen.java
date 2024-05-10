@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-public class ModWorldGenerator extends WorldGenerator implements IWorldGenerator
+public class MWG_Crackhouse1WorldGen extends WorldGenerator implements IWorldGenerator
 {
     static Random rand2 = new Random();
 
@@ -45,13 +45,11 @@ public class ModWorldGenerator extends WorldGenerator implements IWorldGenerator
     {
         if ((int) (Math.random() * 100) == 0)
         {
-            System.out.println("[BID] [ModWorldGenerator.java] if ((int) (Math.random() * 100) == 0) thing said structure should generate.");
+            System.out.println("((int) (Math.random() * 100) == 0) thing said structure should generate.");
             int y = getGroundFromAbove(world, blockX, blockZ);
             BlockPos pos = new BlockPos(blockX, y, blockZ);
             WorldGenerator crackhouse1 = new Crackhouse1WorldGen();
-            WorldGenerator crackshack1 = new Crackshack1WorldGen();
             crackhouse1.generate(world, rand, pos);
-            crackshack1.generate(world, rand, pos);
 
         }
     }

@@ -47,7 +47,7 @@ public class Crackshack1WorldGen extends WorldGenerator {
             return false;
         }
 
-        if(ModWorldGenerator.canSpawnHere(template, worldserver, position))
+        if(MWG_Crackhouse1WorldGen.canSpawnHere(template, worldserver, position))
         {
             IBlockState iblockstate = world.getBlockState(position);
             world.notifyBlockUpdate(position, iblockstate, iblockstate, 3);
@@ -76,56 +76,6 @@ public class Crackshack1WorldGen extends WorldGenerator {
                     }
                 }
 
-                if ("br".equals(entry.getValue()))
-                {
-                    BlockPos blockpos2 = entry.getKey();
-                    world.setBlockState(blockpos2.up(), Blocks.AIR.getDefaultState(), 3);
-                    TileEntity tileentity = world.getTileEntity(blockpos2);
-
-                    if (tileentity instanceof TileEntityBrewingStand)
-                    {
-                        int i  =1+r2.nextInt(3);
-
-                        for (int j=0;j<i;j++) {
-
-                            r = r2.nextInt(90);
-
-                            ItemStack pot=null;
-                            switch(r) {
-                                case 0: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_HEALING);}
-                                break;
-
-                                case 1: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_FIRE_RESISTANCE);}
-                                break;
-
-                                case 2: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_LEAPING);}
-                                break;
-
-                                case 3: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_HARMING);}
-                                break;
-
-                                case 4: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_STRENGTH);}
-                                break;
-
-                                case 5: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_SWIFTNESS);};
-                                break;
-
-                                case 6: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_WATER_BREATHING);}
-                                break;
-
-                                case 7: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_REGENERATION);}
-                                break;
-
-                                case 8: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.STRONG_POISON);}
-                                break;
-
-                                case 9: {pot = new ItemStack(Items.POTIONITEM);PotionUtils.addPotionToItemStack(pot, PotionTypes.LONG_NIGHT_VISION);}
-                                break;
-                            }
-                            ((TileEntityBrewingStand)tileentity).setInventorySlotContents(j,pot);
-                        }
-                    }
-                }
             }
             return true;
         }

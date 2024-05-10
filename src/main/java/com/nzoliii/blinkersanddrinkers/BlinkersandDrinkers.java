@@ -1,15 +1,16 @@
 package com.nzoliii.blinkersanddrinkers;
 
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
-import com.nzoliii.blinkersanddrinkers.world.ModWorldGenerator;
+import com.nzoliii.blinkersanddrinkers.world.MWG_Crackhouse1WorldGen;
+import com.nzoliii.blinkersanddrinkers.world.MWG_Crackshack1WorldGen;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-// TODO: FIX THIS LATER TO ALLOW GENERATING MORE CRACK SHACKS, FOR NOW IT WILL BE GOOD FOR 1.0
+// TODO:        Fix crackshack1's brewing stand spawn, at least it generates now.
+//              Need to offset crackhouse1 to fit in one chunk.
 
 @Mod(modid = BlinkersandDrinkers.MODID, name = BlinkersandDrinkers.NAME, version = BlinkersandDrinkers.VERSION)
 public class BlinkersandDrinkers
@@ -26,11 +27,9 @@ public class BlinkersandDrinkers
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        // some example code
-        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-        GameRegistry.registerWorldGenerator(new ModWorldGenerator(), 0);
-        System.out.println("[BID] [Main.java] Blinkers and Drinkers loaded?");
+        GameRegistry.registerWorldGenerator(new MWG_Crackhouse1WorldGen(), 0);
+        GameRegistry.registerWorldGenerator(new MWG_Crackshack1WorldGen(), 0);
+        System.out.println("Blinkers and Drinkers loaded?");
 
     }
-
 }
